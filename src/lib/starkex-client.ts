@@ -1,6 +1,6 @@
 import {StarkErrorCode} from './common';
 import {GatewayRequestType} from './gateway/gateway-request-type';
-import {FeederGateway, Gateway} from './index';
+import {FeederGateway, Gateway, AvailabilityGateway} from './index';
 
 class StarkExClient {
   public static readonly StarkErrorCode = StarkErrorCode;
@@ -8,10 +8,12 @@ class StarkExClient {
 
   public gateway: Gateway;
   public feederGateway: FeederGateway;
+  public availabilityGateway: AvailabilityGateway;
 
   constructor(config: StarkExClientConfig) {
     this.gateway = new Gateway(config);
     this.feederGateway = new FeederGateway(config);
+    this.availabilityGateway = new AvailabilityGateway(config);
   }
 }
 
